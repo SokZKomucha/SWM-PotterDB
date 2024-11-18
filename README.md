@@ -1,50 +1,51 @@
-# Welcome to your Expo app 👋
+# SWM-PotterDB
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+Built with React Native, Expo and PotterDB API, this project provides an easy way to look up any character from series "Harry Potter".
+<br>
+_Disclaimer: I have zero past experiences with/related to Harry Potter series, and I don't know anything about it._
 
-1. Install dependencies
+### Technical
 
-   ```bash
-   npm install
-   ```
+I'm afraid that, while technically it may be against project's guidelines, it's necessary to store some resources locally, for example `characters.json`. PotterDB API has, in my opinion, absurdly restrictive rate limit of only 15 requests per minute. Full character list fetch alone takes 50 requests, which makes character search practically impossible. This forces me to store the most important, `id` and `name` in local file. However, the API is still used, for example to fetch character's details.
 
-2. Start the app
+### TODO
+- Landing page, selection screen
+   - Characters
+   - Books
+   - Movies
+   - Spells (optionally)
+   - Favourites
 
-   ```bash
-    npx expo start
-   ```
+- Characters
+   - Pagination
+      - 25 elements per page
+      - Previous, next, any inbetween
 
-In the output, you'll find options to open the app in a
+   - Elements
+      - Click redirects to own details page
+      - In form of a card, with image, character's name and button to favourite
+      - One column
+   
+   - Search
+      - Click redirects to own details page
+      - Search by character's name, using `includes()` 
+      - Highlights search query in character's name, eg. "Ha**rry** Potter"
+      - Add to favourites option
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   - Details
+      - Header with character's name and arrow to go back
+      - Big character's name, then image, then additional details
+      - Link to wiki page
+      - Add to favourites option 
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Books
+   - Elements
+      - Simple page without search option, there are only 7 of them
+      - In form of a card, with title and cover
+      - Add to favourites option
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+   - Details
+      - Header with book's name and arrow to go back
+      - Big book's name, then cover, then list of chapters. Also with redirects to them. Chapter page should contain summary, link to wiki page and option to favourite
+      - Book's page should additionally contain wiki link and option to favourite
