@@ -32,6 +32,17 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/HostGrotesk-Bold.ttf",
+            "./assets/fonts/HostGrotesk-Medium.ttf",
+            "./assets/fonts/HostGrotesk-Regular.ttf",
+            "./assets/fonts/HostGrotesk-Light.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {
