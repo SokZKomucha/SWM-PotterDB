@@ -1,7 +1,6 @@
 import Card from "@/components/Card";
-import { ScrollView, Text, View } from "react-native";
-import { useFonts } from "expo-font"
-
+import { useFonts } from "expo-font";
+import { ScrollView, Text } from "react-native";
 
 export default function Index() {
   const [loaded, error] = useFonts({
@@ -38,7 +37,7 @@ export default function Index() {
         fontWeight: 100
       }}>Welcome to my PotterDB API wrapper. Choose any of the following to begin:</Text>
 
-      <Card title="Characters" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Go there" linkUrl="/"></Card>
+      <Card title="Characters" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Go there" linkUrl="/characters"></Card>
       <Card title="Books" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała."></Card>
       <Card title="Movies" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała."></Card>
       <Card title="Favorites" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała."></Card>
