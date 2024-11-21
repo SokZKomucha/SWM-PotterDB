@@ -17,7 +17,6 @@ export default function Index() {
       alignItems: "center",
       paddingBlock: 50,
       paddingInline: 25,
-      backgroundImage: "linear-gradient(red, blue)",
       gap: 15,
       backgroundColor: "white"
     }}>
