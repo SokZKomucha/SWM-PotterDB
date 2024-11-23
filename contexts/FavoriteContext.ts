@@ -1,10 +1,15 @@
 import { createContext, Dispatch, SetStateAction } from "react";
 
-// Store only item's id
+type IdNamePair = {
+  id: string,
+  name: string
+}
+
+// Store only item's id and name
 export interface Favorites {
-  characters: string[]
-  books: string[]
-  movies: string[]
+  characters: IdNamePair[]
+  books: IdNamePair[]
+  movies: IdNamePair[]
 }
 
 export interface FavoriteContext {

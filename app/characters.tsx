@@ -92,9 +92,9 @@ export default function Characters() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        gap: 15,
         paddingBlock: 25,
         paddingInline: 25,
-        gap: 15,
         backgroundColor: "white"
       }}>
 
@@ -114,23 +114,22 @@ export default function Characters() {
                 linkParams={e}
                 imageUrl={e.image ?? "http://via.placeholder.com/200x200"}
                 favoritable={true}
-                initialFavoriteValue={favorites.favorites.characters.includes(e.id)}
+                initialFavoriteValue={!!favorites.favorites.characters.find(f => f.id === e.id)}
                 setFavorite={() => {
                   // Remove or add
-                  if (favorites.favorites.characters.includes(e.id)) {
+                  if (!!favorites.favorites.characters.find(f => f.id === e.id)) {
                     favorites.setFavorites(prev => ({
                       ...prev,
-                      characters: prev.characters.filter(f => f !== e.id)
+                      characters: prev.characters.filter(f => f.id !== e.id)
                     }));
                   } else {
                     favorites.setFavorites(prev => ({
                       ...prev,
-                      characters: [...prev.characters, e.id]
+                      characters: [...prev.characters, e]
                     }));
                   }
                 }}
                 // I love react
-                
               ></Card>
             ))
         }

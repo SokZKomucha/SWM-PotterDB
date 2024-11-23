@@ -9,6 +9,8 @@ type CardProps = {
   linkTitle?: string,
   linkUrl?: string,
   linkParams?: any,
+
+  image?: any,
   imageUrl?: string,
 
   favoritable?: true
@@ -57,7 +59,7 @@ export default function Card(props: CardProps) {
           }}>
 
             {props.linkTitle && (
-              <View style={{ flexBasis: 120 }}>
+              <View style={{ flexBasis: 140 }}>
                 <Button
                   color="rgb(141, 68, 242)"
                   title={props.linkTitle}

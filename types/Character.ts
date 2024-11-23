@@ -17,6 +17,7 @@ export default interface Character {
       house: string | null
       image: string | null
       jobs: string[]
+      marital_status: string | null
       name: string | null
       nationality: string | null
       patronus: string | null
@@ -25,7 +26,7 @@ export default interface Character {
       slug: string | null
       species: string | null
       titles: string[]
-      wand: string[]
+      wands: string[]
       weight: string | null
       wiki: string | null
     }

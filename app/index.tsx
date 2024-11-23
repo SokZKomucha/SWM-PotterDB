@@ -16,9 +16,9 @@ export default function Index() {
       display: "flex", 
       flexDirection: "column",
       alignItems: "center",
+      gap: 15,
       paddingBlock: 50,
       paddingInline: 25,
-      gap: 15,
       backgroundColor: "white"
     }}>
 
@@ -37,10 +37,10 @@ export default function Index() {
         fontWeight: 100
       }}>Welcome to my PotterDB API wrapper. Choose any of the following to begin:</Text>
 
-      <Card title="Characters" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Go there" linkUrl="/characters" imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Characters" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Characters" linkUrl="/characters" imageUrl="http://via.placeholder.com/200x200"></Card>
       <Card title="Books" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
       <Card title="Movies" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
-      <Card title="Favorites" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Favorites" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Favorites" linkUrl="/favorites" imageUrl="https://img.freepik.com/premium-photo/black-guy-sunglasses-carrying-huge-big-red-heart-cartoon-afro-american-guy-holding-big-valentine_820340-41092.jpg"></Card>
       
     </ScrollView>
   );

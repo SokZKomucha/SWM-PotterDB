@@ -27,14 +27,20 @@ export default function FavoriteButton(props: FavoriteButtonProps) {
       alignItems: "center",
       borderWidth: 4,
       borderColor: "rgb(141, 68, 242)",
-      boxShadow: enabled ? "0 0 6px -1px rgb(168, 85, 232)" : undefined,
+      boxShadow: enabled ? "0 0 10px -2px rgb(146, 73, 242)" : undefined,
     }}>
 
-      <Pressable onPress={() => { props.onClick(); setEnabled(p => !p) }}>
+      <Pressable style={{ 
+        width: "100%", 
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center" 
+      }} onPress={() => { props.onClick(); setEnabled(p => !p) }}>
         <Image style={{
           marginTop: (props.width ?? 40) / 20,
-          width: (props.width ?? 40) * 0.6,
-          height: (props.width ?? 40) * 0.6
+          width: (props.width ?? 40) * 0.45,
+          height: (props.width ?? 40) * 0.45
         }} source={enabled ? enabledImage : disabledImage}></Image>
       </Pressable>
 

@@ -29,6 +29,7 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerTitle: "Home" }} />
         <Stack.Screen name="characters" options={{ headerTitle: "Characters" }} />
         <Stack.Screen name="characterDetails" options={{ headerTitle: "asdf" }} />
+        <Stack.Screen name="favorites" options={{ headerTitle: "Favorites" }} />
       </Stack>
     </favoriteContext.Provider>
   );
