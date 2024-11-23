@@ -17,7 +17,7 @@ export default function RootLayout() {
         setFavorites(JSON.parse(e));
       }
     });
-  });
+  }, []);
 
   useEffect(() => {
     AsyncStorage.setItem("favorites", JSON.stringify(favorites));

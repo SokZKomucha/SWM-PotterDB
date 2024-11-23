@@ -1,4 +1,5 @@
 import Card from "@/components/Card";
+import FavoriteButton from "@/components/FavoriteButton";
 import { useFonts } from "expo-font";
 import { ScrollView, Text } from "react-native";
 

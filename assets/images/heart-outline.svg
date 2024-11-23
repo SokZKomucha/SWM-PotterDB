@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg2157"
+   sodipodi:docname="heart-outline.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2159"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="37.255689"
+     inkscape:cx="0.49656846"
+     inkscape:cy="9.7837408"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="2391"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2138" />
+  <g
+     clip-path="url(#clip0_15251_63610)"
+     id="g2138">
+    <path
+       d="M 8.0000001,4.0381476 C 7.4390563,2.6318121 6.1022031,1.6420511 4.5421168,1.6420511 c -2.2773249,0 -3.85633174,2.1114903 -3.85633174,4.2606632 0,3.6121114 3.80608834,6.3748567 6.48965294,8.2025357 0.5037048,0.342957 1.1455787,0.342957 1.6492843,0 2.6835637,-1.827679 6.4894927,-4.5904243 6.4894927,-8.2026947 0,-2.1491728 -1.578848,-4.2605041 -3.856332,-4.2605041 -1.5599261,0 -2.8969394,0.9897611 -3.4578829,2.3960964 z"
+       fill="#fff"
+       id="path2136"
+       style="fill:#ffffff;fill-opacity:1;stroke:#d14acf;stroke-width:1.37157;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+  <defs
+     id="defs2155">
+    <radialGradient
+       id="paint1_radial_15251_63610"
+       cx="-0.15435429"
+       cy="0.34228823"
+       r="1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-4.0659293,6.8887894,-8.7770344,-5.1804169,7.637445,9.6009991)"
+       fx="-0.15435429"
+       fy="0.34228823">
+      <stop
+         offset=".5637"
+         stop-color="#E11731"
+         stop-opacity="0"
+         id="stop2140" />
+      <stop
+         offset="1"
+         stop-color="#E11731"
+         stop-opacity=".1"
+         id="stop2142" />
+    </radialGradient>
+    <linearGradient
+       id="paint0_linear_15251_63610"
+       x1="2.3986"
+       y1="2.4007"
+       x2="13.5975"
+       y2="13.5993"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#FF74AE"
+         id="stop2145" />
+      <stop
+         offset=".5001"
+         stop-color="#FA2E3E"
+         id="stop2147" />
+      <stop
+         offset="1"
+         stop-color="#FF5758"
+         id="stop2149" />
+    </linearGradient>
+    <clipPath
+       id="clip0_15251_63610">
+      <path
+         fill="#fff"
+         d="M-.001.0009h15.9992v15.9984H-.001z"
+         id="path2152" />
+    </clipPath>
+  </defs>
+</svg>

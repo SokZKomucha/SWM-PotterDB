@@ -1,5 +1,4 @@
-import Character from "@/types/Character";
-import { createContext, Dispatch, SetStateAction, useContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
 // Store only item's id
 export interface Favorites {

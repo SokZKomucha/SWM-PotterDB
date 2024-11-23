@@ -1,8 +1,9 @@
 import characters from "@/assets/data/characters.json";
 import Card from "@/components/Card";
 import Pagination from "@/components/Pagination";
+import { favoriteContext } from "@/contexts/FavoriteContext";
 import { Link, useNavigation } from "expo-router";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { NativeSyntheticEvent, ScrollView, Text, TextInputFocusEventData, View } from "react-native";
 // import { useHeaderHeight } from "@react-navigation/elements"
 
@@ -11,6 +12,7 @@ const elementsPerPage = 25;
 export default function Characters() {
   const scrollRef = useRef<ScrollView>(null);
   const navigation = useNavigation();
+  const favorites = useContext(favoriteContext);
   // const headerHeight = useHeaderHeight();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -105,12 +107,30 @@ export default function Characters() {
             .filter((e, i) => i >= (currentPage - 1) * elementsPerPage && i < currentPage * elementsPerPage)
             .map((e, i) => (
               <Card
-                key={i}
+                key={e.id}
                 title={e.name}
                 linkTitle="Details"
                 linkUrl="/characterDetails"
                 linkParams={e}
                 imageUrl={e.image ?? "http://via.placeholder.com/200x200"}
+                favoritable={true}
+                initialFavoriteValue={favorites.favorites.characters.includes(e.id)}
+                setFavorite={() => {
+                  // Remove or add
+                  if (favorites.favorites.characters.includes(e.id)) {
+                    favorites.setFavorites(prev => ({
+                      ...prev,
+                      characters: prev.characters.filter(f => f !== e.id)
+                    }));
+                  } else {
+                    favorites.setFavorites(prev => ({
+                      ...prev,
+                      characters: [...prev.characters, e.id]
+                    }));
+                  }
+                }}
+                // I love react
+                
               ></Card>
             ))
         }
