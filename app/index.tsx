@@ -36,10 +36,11 @@ export default function Index() {
         fontWeight: 100
       }}>Welcome to my PotterDB API wrapper. Choose any of the following to begin:</Text>
 
-      <Card title="Characters" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Go there" linkUrl="/characters"></Card>
-      <Card title="Books" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała."></Card>
-      <Card title="Movies" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała."></Card>
-      <Card title="Favorites" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała."></Card>
+      <Card title="Characters" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Go there" linkUrl="/characters" imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Books" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Movies" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Favorites" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
+      
     </ScrollView>
   );
 }

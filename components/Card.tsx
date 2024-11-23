@@ -7,6 +7,8 @@ type CardProps = {
   description?: string,
   linkTitle?: string,
   linkUrl?: string,
+  linkParams?: any,
+  imageUrl?: string,
 }
 
 export default function Card(props: CardProps) {
@@ -15,6 +17,8 @@ export default function Card(props: CardProps) {
   });
 
   const router = useRouter();
+
+  console.log(props.imageUrl)
 
   return (
     <View style={{
@@ -26,14 +30,17 @@ export default function Card(props: CardProps) {
       boxShadow: "0px 2px 6px -2px rgba(0, 0, 0, 0.25)",
       borderRadius: 10,
     }}>
-      <Image source={{ uri: "http://via.placeholder.com/200x200" }} style={{ height: 250 }}></Image>
+      <Image source={{ uri: props.imageUrl }} style={{ height: 250, objectFit: "cover" }}></Image> 
       <View style={{
         display: "flex",
         flexDirection: "column",
         padding: 15,
         gap: 5
       }}>
-        <Text style={{ fontSize: 24, fontFamily: "Host-Grotesk" }}>{props.title}</Text>
+        <Text style={{ 
+          fontSize: props.title.length > 22 ? 18 : 24, 
+          fontFamily: "Host-Grotesk"
+        }}>{props.title}</Text>
         {props.description && <Text>{props.description}</Text>}
         {props.linkTitle && (
           <View style={{
@@ -41,11 +48,13 @@ export default function Card(props: CardProps) {
             height: 40,
             marginTop: 10
           }}>
-            <Button color="rgb(141, 68, 242)" title={props.linkTitle} onPress={() => router.push(props.linkUrl as any)}></Button>
+            <Button 
+              color="rgb(141, 68, 242)"
+              title={props.linkTitle}
+              onPress={() => router.push({ pathname: props.linkUrl as any, params: props.linkParams})}></Button>
           </View>
         )}
       </View>
-
     </View>
   )
 }
