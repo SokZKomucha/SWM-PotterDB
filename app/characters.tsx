@@ -57,23 +57,23 @@ export default function Characters() {
         }}>
           {
             filteredCharacters.length >= 1 ?
-            filteredCharacters
-              .filter((e, i) => i < 5) // get first 5
-              .map((e, i) => (
-                <Link key={i} style={{
-                  borderBottomWidth: 1,
-                  borderBottomColor: i < Math.min(4, filteredCharacters.length - 1) ?  "rgba(0, 0, 0, 0.25)" : "transparent", // Hell yeah
-                  padding: 5
-                }} href={{
-                  pathname: "/characterDetails",
-                  params: e
-                }}>
-                  {e.name}
-                </Link>
-              )) : 
-            <Text style={{
-              fontStyle: "italic"
-            }}>No results found</Text>
+              filteredCharacters
+                .filter((e, i) => i < 5) // get first 5
+                .map((e, i) => (
+                  <Link key={i} style={{
+                    borderBottomWidth: 1,
+                    borderBottomColor: i < Math.min(4, filteredCharacters.length - 1) ? "rgba(0, 0, 0, 0.25)" : "transparent", // Hell yeah
+                    padding: 5
+                  }} href={{
+                    pathname: "/characterDetails",
+                    params: e
+                  }}>
+                    {e.name}
+                  </Link>
+                )) :
+              <Text style={{
+                fontStyle: "italic"
+              }}>No results found</Text>
           }
         </View>
       }
@@ -130,7 +130,7 @@ export default function Characters() {
                     }));
                   }
                 }}
-                // I love react
+              // I love react
               ></Card>
             ))
         }

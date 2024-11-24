@@ -1,9 +1,8 @@
 import Card from "@/components/Card";
 import { favoriteContext } from "@/contexts/FavoriteContext";
 import { Movies as TMovies } from "@/types/Movie";
-import { useLinkBuilder } from "@react-navigation/native";
 import { useContext, useEffect, useState } from "react";
-import { Alert, ScrollView, Text, useColorScheme } from "react-native";
+import { Alert, ScrollView, Text } from "react-native";
 
 export default function Movies() {
   const [movies, setMovies] = useState<TMovies | null>(null);

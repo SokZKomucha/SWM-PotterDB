@@ -113,7 +113,7 @@ export default function BookDetails() {
           <Collapsible title="Chapter list">
             {
               bookData?.data?.relationships?.chapters?.data?.map((e, i) => (
-                
+
                 <View key={e.id} style={{
                   height: 35,
                   display: "flex",

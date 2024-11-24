@@ -1,7 +1,6 @@
 import { favoriteContext } from "@/contexts/FavoriteContext";
 import Chapter from "@/types/Chapter";
 import { Link, useLocalSearchParams, useNavigation } from "expo-router";
-import { title } from "process";
 import { useContext, useEffect, useState } from "react";
 import { Alert, Pressable, ScrollView, Text, View } from "react-native";
 

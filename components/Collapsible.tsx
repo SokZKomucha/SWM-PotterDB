@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useState } from "react";
+import { useState } from "react";
 import { Image, Pressable, Text, View, ViewStyle } from "react-native";
 
 type CollapsibleProps = {
@@ -10,14 +10,7 @@ type CollapsibleProps = {
 export default function Collapsible(props: CollapsibleProps) {
   const [expanded, setExpanded] = useState(false);
 
-  useEffect(() => console.log(expanded), [expanded]);
-
   return (
-    // <View style={{ width: 100, height: 300 }}>
-    //   <Text>{`${expanded}`}</Text>
-    //   <Pressable style={{ width: 50, height: 50, backgroundColor: "red" }} onPress={() => setExpanded(p => !p)}></Pressable>
-    //   {expanded && props.children}
-    // </View>
     <View style={{
       width: "100%",
       borderRadius: 5,

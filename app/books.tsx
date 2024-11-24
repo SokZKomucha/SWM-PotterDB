@@ -2,7 +2,7 @@ import Card from "@/components/Card";
 import { favoriteContext } from "@/contexts/FavoriteContext";
 import { Books as TBooks } from "@/types/Book"; // boże
 import { useContext, useEffect, useState } from "react";
-import { Alert, ScrollView, Text, View } from "react-native";
+import { Alert, ScrollView, Text } from "react-native";
 
 export default function Books() {
   const [books, setBooks] = useState<TBooks | null>(null);

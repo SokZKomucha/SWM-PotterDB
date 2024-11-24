@@ -1,7 +1,7 @@
-import { Stack } from "expo-router";
 import { favoriteContext, Favorites } from "@/contexts/FavoriteContext";
-import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Stack } from "expo-router";
+import { useEffect, useState } from "react";
 
 export default function RootLayout() {
 
@@ -32,9 +32,9 @@ export default function RootLayout() {
         <Stack.Screen name="characterDetails" />
         <Stack.Screen name="favorites" options={{ headerTitle: "Favorites" }} />
         <Stack.Screen name="books" options={{ headerTitle: "Books" }} />
-        <Stack.Screen name="bookDetails"/>
+        <Stack.Screen name="bookDetails" />
         <Stack.Screen name="movies" options={{ headerTitle: "Movies" }} />
-        <Stack.Screen name="movieDetails"/>
+        <Stack.Screen name="movieDetails" />
         <Stack.Screen name="chapterDetails" />
       </Stack>
     </favoriteContext.Provider>

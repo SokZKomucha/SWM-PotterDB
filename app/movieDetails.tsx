@@ -3,7 +3,7 @@ import { Movie } from "@/types/Movie";
 import { useFonts } from "expo-font";
 import { Link, useLocalSearchParams, useNavigation } from "expo-router";
 import { useContext, useEffect, useState } from "react";
-import { Alert, Image, Pressable, ScrollView, Text, useColorScheme, View } from "react-native";
+import { Alert, Image, Pressable, ScrollView, Text, View } from "react-native";
 
 export default function MovieDetails() {
   const navigation = useNavigation();

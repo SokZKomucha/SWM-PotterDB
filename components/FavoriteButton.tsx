@@ -30,12 +30,12 @@ export default function FavoriteButton(props: FavoriteButtonProps) {
       boxShadow: enabled ? "0 0 10px -2px rgb(146, 73, 242)" : undefined,
     }}>
 
-      <Pressable style={{ 
-        width: "100%", 
+      <Pressable style={{
+        width: "100%",
         height: "100%",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center" 
+        alignItems: "center"
       }} onPress={() => { props.onClick(); setEnabled(p => !p) }}>
         <Image style={{
           marginTop: (props.width ?? 40) / 20,

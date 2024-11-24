@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 import { useRouter } from "expo-router";
-import { Button, Image, Pressable, StyleProp, Text, View, ViewStyle } from "react-native";
+import { Button, Image, Text, View } from "react-native";
 import FavoriteButton from "./FavoriteButton";
 
 type CardProps = {
@@ -67,8 +67,8 @@ export default function Card(props: CardProps) {
 
             {props.favoritable && (
               <View style={{ position: "absolute", right: 0 }}>
-                <FavoriteButton 
-                  initialValue={props.initialFavoriteValue ?? false} 
+                <FavoriteButton
+                  initialValue={props.initialFavoriteValue ?? false}
                   onClick={props.setFavorite ?? (() => null)} // Fallback?  
                 ></FavoriteButton>
               </View>

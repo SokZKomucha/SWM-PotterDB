@@ -5,7 +5,7 @@ export interface Movie {
   data?: {
     id: string,
     type: string,
-    attributes? :{
+    attributes?: {
       slug: string | null,
       box_office: string | null
       budget: string | null
@@ -45,7 +45,7 @@ export interface Movies {
   data?: {
     id: string,
     type: string,
-    attributes? :{
+    attributes?: {
       slug: string | null,
       box_office: string | null
       budget: string | null
