@@ -49,7 +49,6 @@ export default function Favorites() {
       }
 
 
-
       {favorites.favorites.books.length > 0 &&
         <Collapsible title="Books">
           {
@@ -72,7 +71,6 @@ export default function Favorites() {
           }
         </Collapsible>
       }
-
 
 
       {favorites.favorites.chapters.length > 0 &&
@@ -98,7 +96,6 @@ export default function Favorites() {
         </Collapsible>
       }
 
-
       {favorites.favorites.movies.length > 0 &&
         <Collapsible title="Movies">
           {
@@ -121,7 +118,6 @@ export default function Favorites() {
           }
         </Collapsible>
       }
-
 
     </ScrollView>
   )

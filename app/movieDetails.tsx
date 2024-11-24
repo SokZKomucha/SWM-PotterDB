@@ -18,7 +18,6 @@ export default function MovieDetails() {
     "Host-Grotesk-Light": require("@/assets/fonts/HostGrotesk-Light.ttf"),
   });
 
-
   useEffect(() => {
     navigation.setOptions({
       headerTitle: title
@@ -84,7 +83,6 @@ export default function MovieDetails() {
             textDecorationLine: "underline"
           }} href={movieData?.data?.attributes?.wiki as any}>Wiki link</Link>}
         </View>
-
 
         <Text style={{
           fontSize: 18,
@@ -183,8 +181,6 @@ export default function MovieDetails() {
             ))
           )}
         </View>
-
-
 
       </View>
     </ScrollView>

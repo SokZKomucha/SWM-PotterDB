@@ -158,7 +158,7 @@ export default function Characters() {
                     }));
                   }
                 }}
-              // I love react
+              // I love React
               ></Card>
             ))
         }

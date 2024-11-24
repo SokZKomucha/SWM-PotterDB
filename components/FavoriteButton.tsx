@@ -29,7 +29,6 @@ export default function FavoriteButton(props: FavoriteButtonProps) {
       borderColor: "rgb(141, 68, 242)",
       boxShadow: enabled ? "0 0 10px -2px rgb(146, 73, 242)" : undefined,
     }}>
-
       <Pressable style={{
         width: "100%",
         height: "100%",
@@ -43,7 +42,6 @@ export default function FavoriteButton(props: FavoriteButtonProps) {
           height: (props.width ?? 40) * 0.45
         }} source={enabled ? enabledImage : disabledImage}></Image>
       </Pressable>
-
     </View>
   )
 }

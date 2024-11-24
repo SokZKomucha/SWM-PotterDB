@@ -1,4 +1,5 @@
 import { favoriteContext } from "@/contexts/FavoriteContext";
+import { storedCharactersContext } from "@/contexts/StoredCharactersContext";
 import { Character } from "@/types/Character";
 import { useFonts } from "expo-font";
 import { Link, useNavigation } from "expo-router";
@@ -9,10 +10,9 @@ import { Alert, Image, Pressable, ScrollView, Text, View } from "react-native";
 export default function characterDetails() {
   const navigation = useNavigation();
   const favorites = useContext(favoriteContext);
+  const characters = useContext(storedCharactersContext);
   const { id, name } = useLocalSearchParams<{ id: string, name: string }>();
   const [characterData, setCharacterData] = useState<Character | null>(null);
-
-  console.log(id, name)
 
   const [loaded, error] = useFonts({
     "Host-Grotesk-Bold": require("@/assets/fonts/HostGrotesk-Bold.ttf"),
@@ -110,8 +110,6 @@ export default function characterDetails() {
             <Text>{characterData.data?.attributes.marital_status ?? "Unknown"}</Text>
           </View>
 
-
-
           <Text style={{
             fontSize: 18,
             fontFamily: "Host-Grotesk"
@@ -152,8 +150,6 @@ export default function characterDetails() {
             <Text>{characterData.data?.attributes.weight ?? "Unknown"}</Text>
           </View>
 
-
-
           <Text style={{
             fontSize: 18,
             fontFamily: "Host-Grotesk"
@@ -183,8 +179,6 @@ export default function characterDetails() {
             )}
           </View>
 
-
-
           <Text style={{
             fontSize: 18,
             fontFamily: "Host-Grotesk"
@@ -210,10 +204,6 @@ export default function characterDetails() {
 
         </View>
       )}
-
-
-
-
 
     </ScrollView>
   )

@@ -19,7 +19,6 @@ export default function BookDetails() {
     "Host-Grotesk-Light": require("@/assets/fonts/HostGrotesk-Light.ttf"),
   });
 
-
   useEffect(() => {
     navigation.setOptions({
       headerTitle: title
@@ -47,8 +46,6 @@ export default function BookDetails() {
       }} source={{
         uri: bookData?.data?.attributes?.cover ?? "http://via.placeholder.com/200x200"
       }}></Image>
-
-
 
       <View style={{
         display: "flex",
@@ -134,7 +131,6 @@ export default function BookDetails() {
         </View>
 
       </View>
-
 
     </ScrollView>
   )

@@ -9,15 +9,14 @@ import { storedCharactersContext } from "@/contexts/StoredCharactersContext"
 
 
 export default function RootLayout() {
-
+  
+  const [storedCharacters, setStoredCharacters] = useState<StoredCharacter[]>([]);
   const [favorites, setFavorites] = useState<Favorites>({
     characters: [],
     books: [],
     movies: [],
     chapters: []
   });
-
-  const [storedCharacters, setStoredCharacters] = useState<StoredCharacter[]>([]);
 
   const fetchCharacters = async () => {
 
@@ -87,7 +86,6 @@ export default function RootLayout() {
       }
     });
   }, []);
-
 
   useEffect(() => {
     AsyncStorage.setItem("favorites", JSON.stringify(favorites));

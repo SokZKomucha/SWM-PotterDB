@@ -7,10 +7,17 @@ _Disclaimer: I have zero past experiences with/related to Harry Potter series, a
 
 ### Features
 
-- Character browser, complete with pagination, search and character's details
+- Character browser, complete with pagination, search, filtering and character's details
 - Book browser, with book's details and list of its chapters
 - Movie browser, with movie's details
 
-### Technical and limitations
+### Technical (limitations)
 
-I'm afraid that, while technically it may be against project's guidelines, it's necessary to store some resources locally, for example `characters.json`. PotterDB API has, in my opinion, absurdly restrictive rate limit of only 15 requests per minute. Full character list fetch alone takes 50 requests, which makes character search practically impossible. This forces me to store the most important, `id` and `name` in local file. However, the API is still used, for example to fetch character's details.
+While technically it may be against project's guidelines, I'm afraid it's necessary to store **all** character information in a file. Reason being, PotterDB API has absurdly restrictive rate limit of only 900 requests per hour, not to mention limit of 100 characters per one fetch. The fact that there are almost 5000 characters doesn't help at all. 
+
+
+A solution would be to do these 50 fetches once, then cache results. Unfortunately, minimified JSON with list of all characters weights almost 4MB. From my experiments, I've concluded that `AsyncStorage` gives up somewhere between 600kB and 1.2MB. 
+
+That doesn't change the fact it IS possible to fetch everytime on load. In `_layout.tsx` I've included sample code that may do so. It's commended by default, because in my opinion. It's safer to load characters from JSON. 
+
+Despite all that, I still fetch frequently throughout the project. Even character details are fetched (and not loaded), as at some point, it was necessary to do so. Books and movies, including their details, are all fetched too. 

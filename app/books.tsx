@@ -34,7 +34,7 @@ export default function Books() {
             books.data?.map((e, i) => (
               <Card
                 key={e.id}
-                title={e.attributes?.title!} // sam już nie wiem
+                title={e.attributes?.title ?? ""} // sam już nie wiem
                 linkTitle="Details"
                 linkUrl="/bookDetails"
                 linkParams={{ id: e.id, name: e.attributes?.title }}

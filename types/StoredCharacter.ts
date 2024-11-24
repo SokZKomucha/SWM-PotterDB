@@ -1,5 +1,3 @@
-// How is it different from Character.ts? I don't know
-
 export default interface StoredCharacter {
   id: string,
   type: string,
@@ -35,8 +33,3 @@ export default interface StoredCharacter {
     self: string | null
   }
 }
-
-// house
-// patronus
-// species
-// gender

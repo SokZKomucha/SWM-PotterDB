@@ -18,7 +18,6 @@ export default function Collapsible(props: CollapsibleProps) {
       boxShadow: "0 0 6px -3px rgba(0, 0, 0, 0.25)"
     }}>
 
-      {/* Header */}
       <Pressable onPress={() => setExpanded(p => !p)} style={{
         height: 40,
         display: "flex",

@@ -26,10 +26,11 @@ export interface Book {
     }
   },
   meta?: {
-
+    copyright: string | null,
+    generated_at: string | null
   },
   links?: {
-
+    self: string | null
   }
 }
 

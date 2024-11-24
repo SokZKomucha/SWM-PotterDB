@@ -1,8 +1,6 @@
 import Card from "@/components/Card";
 import { useFonts } from "expo-font";
-import { Button, ScrollView, Text } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useState } from "react";
+import { ScrollView, Text } from "react-native";
 
 export default function Index() {
   const [loaded, error] = useFonts({
@@ -11,8 +9,6 @@ export default function Index() {
     "Host-Grotesk-Regular": require("@/assets/fonts/HostGrotesk-Regular.ttf"),
     "Host-Grotesk-Light": require("@/assets/fonts/HostGrotesk-Light.ttf"),
   });
-
-  const [state, setState] = useState("");
 
   return (
     <ScrollView contentContainerStyle={{
@@ -47,9 +43,3 @@ export default function Index() {
     </ScrollView>
   );
 }
-
-// TODO 2024-11-24:
-// - change links' colors in character details page
-// - add aliases and family members to character details
-// - add book and movie list, together with details for both
-// - add title images, etc.

@@ -19,6 +19,7 @@ export default function CharacterFilter(props: CharacterFilterProps) {
   const [expanded, setExpanded] = useState(false);
   const characters = useContext(storedCharactersContext);
 
+  // I'm sorry
   const houseOptionsRef = useRef<(string)[] | null>(null);
   const patronusOptionsRef = useRef<(string)[] | null>(null);
   const genderOptionsRef = useRef<(string)[] | null>(null);
@@ -41,8 +42,6 @@ export default function CharacterFilter(props: CharacterFilterProps) {
 
     props.onChange(options);
   }, [selectedHouse, selectedPatronus, selectedGender, selectedSpecies, selectedFavorite]);
-
-
 
   useEffect(() => {
     const set = new Set<string | null | undefined>();
@@ -68,7 +67,6 @@ export default function CharacterFilter(props: CharacterFilterProps) {
     SpeciesOptionsRef.current = ["any", ...Array.from(set).filter(e => e !== undefined && e !== null).sort()]
   }, [SpeciesOptionsRef]);
 
-
   return (
     <View style={{
       width: 30,
@@ -88,7 +86,7 @@ export default function CharacterFilter(props: CharacterFilterProps) {
         <Image style={{
           width: 20,
           height: 20
-          
+
         }} source={require("@/assets/images/icon-filter.png")}></Image>
       </Pressable>
 
@@ -141,7 +139,7 @@ export default function CharacterFilter(props: CharacterFilterProps) {
             }}>
               <Text style={{ fontSize: 15 }}>Patronus:</Text>
             </View>
-            <Picker selectedValue={selectedPatronus} onValueChange={(e: string) => setSelectedPatronus(e)}  style={{
+            <Picker selectedValue={selectedPatronus} onValueChange={(e: string) => setSelectedPatronus(e)} style={{
               fontSize: 10,
               padding: 0,
               flexBasis: 150,
@@ -166,7 +164,7 @@ export default function CharacterFilter(props: CharacterFilterProps) {
             }}>
               <Text style={{ fontSize: 15 }}>Gender:</Text>
             </View>
-            <Picker selectedValue={selectedGender} onValueChange={(e: string) => setSelectedGender(e)}  style={{
+            <Picker selectedValue={selectedGender} onValueChange={(e: string) => setSelectedGender(e)} style={{
               fontSize: 10,
               padding: 0,
               flexBasis: 150,
@@ -191,7 +189,7 @@ export default function CharacterFilter(props: CharacterFilterProps) {
             }}>
               <Text style={{ fontSize: 15 }}>Species:</Text>
             </View>
-            <Picker selectedValue={selectedSpecies} onValueChange={(e: string) => setSelectedSpecies(e)}  style={{
+            <Picker selectedValue={selectedSpecies} onValueChange={(e: string) => setSelectedSpecies(e)} style={{
               fontSize: 10,
               padding: 0,
               flexBasis: 150,
@@ -216,7 +214,7 @@ export default function CharacterFilter(props: CharacterFilterProps) {
             }}>
               <Text style={{ fontSize: 15 }}>Favorite:</Text>
             </View>
-            <Picker selectedValue={selectedFavorite} onValueChange={(e: string) => setSelectedFavorite(e)}  style={{
+            <Picker selectedValue={selectedFavorite} onValueChange={(e: string) => setSelectedFavorite(e)} style={{
               fontSize: 10,
               padding: 0,
               flexBasis: 150,

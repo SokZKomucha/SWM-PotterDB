@@ -75,9 +75,7 @@ export default function Card(props: CardProps) {
             )}
 
           </View>
-        )
-        }
-
+        )}
       </View>
     </View>
   )
