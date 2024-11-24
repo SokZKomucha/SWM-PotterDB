@@ -12,7 +12,6 @@ export default function characterDetails() {
   const { id, name } = useLocalSearchParams<{ id: string, name: string }>();
   const [characterData, setCharacterData] = useState<Character | null>(null);
 
-
   const [loaded, error] = useFonts({
     "Host-Grotesk-Bold": require("@/assets/fonts/HostGrotesk-Bold.ttf"),
     "Host-Grotesk-Medium": require("@/assets/fonts/HostGrotesk-Medium.ttf"),
@@ -79,9 +78,13 @@ export default function characterDetails() {
                 }))
               }
             }}>
-              <Text>{!!favorites.favorites.characters.find(e => e.id === id) ? "Remove from favorites" : "Add to favorites"}</Text>
+              <Text style={{
+                textDecorationLine: "underline"
+              }}>{!!favorites.favorites.characters.find(e => e.id === id) ? "Remove from favorites" : "Add to favorites"}</Text>
             </Pressable>
-            {characterData.data?.attributes.wiki && <Link href={characterData.data.attributes.wiki as any}>Wiki link</Link>}
+            {characterData.data?.attributes.wiki && <Link style={{
+              textDecorationLine: "underline"
+            }} href={characterData.data.attributes.wiki as any}>Wiki link</Link>}
           </View>
 
 
@@ -169,11 +172,36 @@ export default function characterDetails() {
             <Text>{characterData.data?.attributes.patronus ?? "Unknown"}</Text>
           </View>
 
-          <View>
+          <View style={{ marginBottom: 45 }}>
             <Text style={{ fontWeight: "bold" }}>Wands:</Text>
             {characterData.data?.attributes.wands.length === 0 ? <Text>None</Text> : (
               characterData.data?.attributes.wands.map((e, i) => (
                 <Text key={i}>{e}</Text>
+              ))
+            )}
+          </View>
+
+
+
+          <Text style={{
+            fontSize: 18,
+            fontFamily: "Host-Grotesk"
+          }}>Other:</Text>
+
+          <View>
+            <Text style={{ fontWeight: "bold" }}>Family members:</Text>
+            {characterData.data?.attributes.family_members.length === 0 ? <Text>Unknown</Text> : (
+              characterData.data?.attributes.family_members.map((e, i) => (
+                <Text style={{ marginBottom: 5 }} key={i}>{e}</Text>
+              ))
+            )}
+          </View>
+
+          <View>
+            <Text style={{ fontWeight: "bold" }}>Jobs:</Text>
+            {characterData.data?.attributes.jobs.length === 0 ? <Text>None</Text> : (
+              characterData.data?.attributes.jobs.map((e, i) => (
+                <Text style={{ marginBottom: 5 }} key={i}>{e}</Text>
               ))
             )}
           </View>

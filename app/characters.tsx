@@ -89,6 +89,7 @@ export default function Characters() {
       }
 
       <ScrollView ref={scrollRef} contentContainerStyle={{
+        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

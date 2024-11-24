@@ -9,10 +9,7 @@ type CardProps = {
   linkTitle?: string,
   linkUrl?: string,
   linkParams?: any,
-
-  image?: any,
   imageUrl?: string,
-
   favoritable?: true
   initialFavoriteValue?: boolean
   setFavorite?: () => any

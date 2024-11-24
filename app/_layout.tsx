@@ -8,7 +8,8 @@ export default function RootLayout() {
   const [favorites, setFavorites] = useState<Favorites>({
     characters: [],
     books: [],
-    movies: []
+    movies: [],
+    chapters: []
   });
 
   useEffect(() => {
@@ -28,8 +29,13 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="index" options={{ headerTitle: "Home" }} />
         <Stack.Screen name="characters" options={{ headerTitle: "Characters" }} />
-        <Stack.Screen name="characterDetails" options={{ headerTitle: "asdf" }} />
+        <Stack.Screen name="characterDetails" />
         <Stack.Screen name="favorites" options={{ headerTitle: "Favorites" }} />
+        <Stack.Screen name="books" options={{ headerTitle: "Books" }} />
+        <Stack.Screen name="bookDetails"/>
+        <Stack.Screen name="movies" options={{ headerTitle: "Movies" }} />
+        <Stack.Screen name="movieDetails"/>
+        <Stack.Screen name="chapterDetails" />
       </Stack>
     </favoriteContext.Provider>
   );

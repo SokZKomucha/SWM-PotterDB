@@ -1,3 +1,6 @@
+/**
+ * Represents a singular character, obtained by requesting `api.potterdb.com/v1/characters/{id}`
+ */
 export default interface Character {
   data?: {
     id: string
@@ -10,7 +13,7 @@ export default interface Character {
       born: string | null
       died: string | null
       eye_color: string | null
-      family_member: string[]
+      family_members: string[]
       gender: string | null
       hair_color: string | null
       height: string | null
@@ -22,7 +25,7 @@ export default interface Character {
       nationality: string | null
       patronus: string | null
       romances: string[]
-      skin_color: string
+      skin_color: string | null
       slug: string | null
       species: string | null
       titles: string[]

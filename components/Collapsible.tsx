@@ -1,5 +1,5 @@
 import { PropsWithChildren, useEffect, useState } from "react";
-import { Pressable, Text, View, ViewStyle } from "react-native";
+import { Image, Pressable, Text, View, ViewStyle } from "react-native";
 
 type CollapsibleProps = {
   children?: React.ReactNode | undefined
@@ -48,7 +48,8 @@ export default function Collapsible(props: CollapsibleProps) {
           alignItems: "center",
           transform: expanded ? "rotate(90deg)" : "rotate(0deg)"
         }}>
-          <Text style={{ fontSize: 20 }}>&gt;</Text>
+          <Image source={require("@/assets/images/arrow-right.png")}>
+          </Image>
         </View>
       </Pressable>
 

@@ -37,11 +37,17 @@ export default function Index() {
         fontWeight: 100
       }}>Welcome to my PotterDB API wrapper. Choose any of the following to begin:</Text>
 
-      <Card title="Characters" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Characters" linkUrl="/characters" imageUrl="http://via.placeholder.com/200x200"></Card>
-      <Card title="Books" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
-      <Card title="Movies" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." imageUrl="http://via.placeholder.com/200x200"></Card>
-      <Card title="Favorites" description="Lorem ipsum dolot sit amet pozdrawiam Mamę Michała." linkTitle="Favorites" linkUrl="/favorites" imageUrl="https://img.freepik.com/premium-photo/black-guy-sunglasses-carrying-huge-big-red-heart-cartoon-afro-american-guy-holding-big-valentine_820340-41092.jpg"></Card>
+      <Card title="Characters" description="Get to better know all characters appearing in Harry Potter franchise." linkTitle="Characters" linkUrl="/characters" imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Books" description="Learn more about specific title, or its chapters." linkTitle="Books" linkUrl="/books" imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Movies" description="Complete list of all Harry Potter movies." linkTitle="Movies" linkUrl="/movies" imageUrl="http://via.placeholder.com/200x200"></Card>
+      <Card title="Favorites" description="Collection of characters, books and movies you saved, or just love." linkTitle="Favorites" linkUrl="/favorites" imageUrl="https://img.freepik.com/premium-photo/black-guy-sunglasses-carrying-huge-big-red-heart-cartoon-afro-american-guy-holding-big-valentine_820340-41092.jpg"></Card>
       
     </ScrollView>
   );
 }
+
+// TODO 2024-11-24:
+// - change links' colors in character details page
+// - add aliases and family members to character details
+// - add book and movie list, together with details for both
+// - add title images, etc.

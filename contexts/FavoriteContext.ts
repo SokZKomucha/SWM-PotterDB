@@ -10,6 +10,7 @@ export interface Favorites {
   characters: IdNamePair[]
   books: IdNamePair[]
   movies: IdNamePair[]
+  chapters: { id: `${string}/chapters/${string}`, name: `Ch${number},${string}` }[]
 }
 
 export interface FavoriteContext {
