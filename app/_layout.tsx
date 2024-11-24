@@ -44,8 +44,9 @@ export default function RootLayout() {
     //   } catch (error) {
     //     console.log(error);
     //   }
+    //   console.log(i);
+    //   setStoredCharacters(fetchedCharacterList)
     // }
-    // setStoredCharacters(fetchedCharacterList);
 
 
 
