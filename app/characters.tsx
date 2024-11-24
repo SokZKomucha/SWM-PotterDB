@@ -29,7 +29,6 @@ export default function Characters() {
   }
 
   const onFilterChange = (options: ChosenOptions) => {
-    console.log(options)
     const filtered = characters.characters
     .filter(e => (
         (options.house === "any" ? true : e.attributes?.house?.toLocaleLowerCase() === options.house) &&
@@ -43,6 +42,7 @@ export default function Characters() {
 
     setCurrentPage(1);
     setFilteredCharacters(filtered)
+    setSearchedCharacters(filtered);
   }
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function Characters() {
   }, []);
 
   useEffect(() => {
-    const filtered = characters.characters.filter(e => e.attributes?.name?.toLocaleLowerCase().includes(searchFilter.toLocaleLowerCase()));
+    const filtered = filteredCharacters.filter(e => e.attributes?.name?.toLocaleLowerCase().includes(searchFilter.toLocaleLowerCase()));
     setSearchedCharacters(filtered);
   }, [searchFilter]);
 
