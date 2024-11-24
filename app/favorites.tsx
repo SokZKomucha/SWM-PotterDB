@@ -99,7 +99,6 @@ export default function Favorites() {
       }
 
 
-
       {favorites.favorites.movies.length > 0 &&
         <Collapsible title="Movies">
           {

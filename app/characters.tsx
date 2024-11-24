@@ -1,11 +1,13 @@
-import characters from "@/assets/data/characters.json";
+// import characters from "@/assets/data/characters.json";
 import Card from "@/components/Card";
+import CharacterFilter, { ChosenOptions } from "@/components/CharacterFilter";
 import Pagination from "@/components/Pagination";
 import { favoriteContext } from "@/contexts/FavoriteContext";
+import { storedCharactersContext } from "@/contexts/StoredCharactersContext";
+import StoredCharacter from "@/types/StoredCharacter";
 import { Link, useNavigation } from "expo-router";
 import { useContext, useEffect, useRef, useState } from "react";
 import { NativeSyntheticEvent, ScrollView, Text, TextInputFocusEventData, View } from "react-native";
-// import { useHeaderHeight } from "@react-navigation/elements"
 
 const elementsPerPage = 25;
 
@@ -13,16 +15,34 @@ export default function Characters() {
   const scrollRef = useRef<ScrollView>(null);
   const navigation = useNavigation();
   const favorites = useContext(favoriteContext);
-  // const headerHeight = useHeaderHeight();
+  const characters = useContext(storedCharactersContext)
 
   const [currentPage, setCurrentPage] = useState(1);
   const [searchFilter, setSearchFilter] = useState("");
   const [searchOpened, setSearchOpened] = useState(false);
-  const [filteredCharacters, setFilteredCharacters] = useState<typeof characters>([]);
+  const [searchedCharacters, setSearchedCharacters] = useState<StoredCharacter[]>([]);
+  const [filteredCharacters, setFilteredCharacters] = useState<StoredCharacter[]>(characters.characters);
 
   const setCurrentPageWrapper = (newPageNumber: React.SetStateAction<number>) => {
     setCurrentPage(newPageNumber);
     scrollRef.current?.scrollTo({ x: 0, y: 0, animated: true });
+  }
+
+  const onFilterChange = (options: ChosenOptions) => {
+    console.log(options)
+    const filtered = characters.characters
+    .filter(e => (
+        (options.house === "any" ? true : e.attributes?.house?.toLocaleLowerCase() === options.house) &&
+        (options.patronus === "any" ? true : e.attributes?.patronus?.toLocaleLowerCase() === options.patronus) &&
+        (options.gender === "any" ? true : e.attributes?.gender?.toLocaleLowerCase() === options.gender) &&
+        (options.species === "any" ? true : e.attributes?.species?.toLocaleLowerCase() === options.species) &&
+        (options.favorite === "any" ? true : (
+          options.favorite === "yes" ? !!favorites.favorites.characters.find(f => f.id === e.id) === true : !!!favorites.favorites.characters.find(f => f.id === e.id === true
+        )))
+      ));
+
+    setCurrentPage(1);
+    setFilteredCharacters(filtered)
   }
 
   useEffect(() => {
@@ -36,8 +56,8 @@ export default function Characters() {
   }, []);
 
   useEffect(() => {
-    const filtered = characters.filter(e => e.name.toLocaleLowerCase().includes(searchFilter.toLocaleLowerCase()));
-    setFilteredCharacters(filtered);
+    const filtered = characters.characters.filter(e => e.attributes?.name?.toLocaleLowerCase().includes(searchFilter.toLocaleLowerCase()));
+    setSearchedCharacters(filtered);
   }, [searchFilter]);
 
   return (
@@ -56,19 +76,19 @@ export default function Characters() {
           boxShadow: "0 0 6px -2px rgba(0, 0, 0, 0.25)"
         }}>
           {
-            filteredCharacters.length >= 1 ?
-              filteredCharacters
+            searchedCharacters.length >= 1 ?
+              searchedCharacters
                 .filter((e, i) => i < 5) // get first 5
                 .map((e, i) => (
                   <Link key={i} style={{
                     borderBottomWidth: 1,
-                    borderBottomColor: i < Math.min(4, filteredCharacters.length - 1) ? "rgba(0, 0, 0, 0.25)" : "transparent", // Hell yeah
+                    borderBottomColor: i < Math.min(4, searchedCharacters.length - 1) ? "rgba(0, 0, 0, 0.25)" : "transparent", // Hell yeah
                     padding: 5
                   }} href={{
                     pathname: "/characterDetails",
-                    params: e
+                    params: { id: e.id, name: e.attributes!.name ?? "" }
                   }}>
-                    {e.name}
+                    {e.attributes!.name!}
                   </Link>
                 )) :
               <Text style={{
@@ -99,21 +119,29 @@ export default function Characters() {
         backgroundColor: "white"
       }}>
 
-        <View style={{ alignSelf: "flex-start", marginBottom: 10 }}>
-          <Pagination pageNumber={currentPage} setPageNumber={setCurrentPageWrapper} pageCount={Math.ceil(characters.length / elementsPerPage)}></Pagination>
+        <View style={{
+          alignSelf: "flex-start",
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginBottom: 10
+        }}>
+          <Pagination pageNumber={currentPage} setPageNumber={setCurrentPageWrapper} pageCount={Math.ceil(filteredCharacters.length / elementsPerPage)}></Pagination>
+          <CharacterFilter onChange={onFilterChange}></CharacterFilter>
         </View>
 
-        {
-          characters
+        {filteredCharacters.length === 0 ? <Text>No character is matching chosen criteria</Text> : 
+          filteredCharacters
             .filter((e, i) => i >= (currentPage - 1) * elementsPerPage && i < currentPage * elementsPerPage)
             .map((e, i) => (
               <Card
                 key={e.id}
-                title={e.name}
+                title={e.attributes!.name!}
                 linkTitle="Details"
                 linkUrl="/characterDetails"
-                linkParams={e}
-                imageUrl={e.image ?? "http://via.placeholder.com/200x200"}
+                linkParams={{ id: e.id, name: e.attributes!.name ?? "" }}
+                imageUrl={e.attributes?.image || "http://via.placeholder.com/200x200"}
                 favoritable={true}
                 initialFavoriteValue={!!favorites.favorites.characters.find(f => f.id === e.id)}
                 setFavorite={() => {
@@ -126,7 +154,7 @@ export default function Characters() {
                   } else {
                     favorites.setFavorites(prev => ({
                       ...prev,
-                      characters: [...prev.characters, e]
+                      characters: [...prev.characters, { id: e.id, name: e.attributes!.name! }]
                     }));
                   }
                 }}
@@ -135,9 +163,11 @@ export default function Characters() {
             ))
         }
 
-        <View style={{ alignSelf: "flex-start", marginTop: 10 }}>
-          <Pagination pageNumber={currentPage} setPageNumber={setCurrentPageWrapper} pageCount={Math.ceil(characters.length / elementsPerPage)}></Pagination>
-        </View>
+        {filteredCharacters.length >= 2 && (
+          <View style={{ alignSelf: "flex-start", marginTop: 10 }}>
+            <Pagination pageNumber={currentPage} setPageNumber={setCurrentPageWrapper} pageCount={Math.ceil(filteredCharacters.length / elementsPerPage)}></Pagination>
+          </View>
+        )}
 
       </ScrollView>
     </View>

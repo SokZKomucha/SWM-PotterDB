@@ -1,6 +1,8 @@
 import Card from "@/components/Card";
 import { useFonts } from "expo-font";
-import { ScrollView, Text } from "react-native";
+import { Button, ScrollView, Text } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useState } from "react";
 
 export default function Index() {
   const [loaded, error] = useFonts({
@@ -9,6 +11,8 @@ export default function Index() {
     "Host-Grotesk-Regular": require("@/assets/fonts/HostGrotesk-Regular.ttf"),
     "Host-Grotesk-Light": require("@/assets/fonts/HostGrotesk-Light.ttf"),
   });
+
+  const [state, setState] = useState("");
 
   return (
     <ScrollView contentContainerStyle={{
@@ -40,7 +44,6 @@ export default function Index() {
       <Card title="Books" description="Learn more about specific title, or its chapters." linkTitle="Books" linkUrl="/books" imageUrl="https://m.media-amazon.com/images/I/7167GDebbRL._AC_UF1000,1000_QL80_.jpg"></Card>
       <Card title="Movies" description="Complete list of all Harry Potter movies." linkTitle="Movies" linkUrl="/movies" imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpbF3y9Uz7AJHbXvP-uE33Pd2RYOWTkw1rJw&s"></Card>
       <Card title="Favorites" description="Collection of characters, books and movies you saved, or just love." linkTitle="Favorites" linkUrl="/favorites" imageUrl="https://img.freepik.com/premium-photo/black-guy-sunglasses-carrying-huge-big-red-heart-cartoon-afro-american-guy-holding-big-valentine_820340-41092.jpg"></Card>
-
     </ScrollView>
   );
 }

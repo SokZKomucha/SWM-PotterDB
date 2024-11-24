@@ -1,5 +1,5 @@
 import { favoriteContext } from "@/contexts/FavoriteContext";
-import Character from "@/types/Character";
+import { Character } from "@/types/Character";
 import { useFonts } from "expo-font";
 import { Link, useNavigation } from "expo-router";
 import { useLocalSearchParams } from "expo-router/build/hooks";
@@ -11,6 +11,8 @@ export default function characterDetails() {
   const favorites = useContext(favoriteContext);
   const { id, name } = useLocalSearchParams<{ id: string, name: string }>();
   const [characterData, setCharacterData] = useState<Character | null>(null);
+
+  console.log(id, name)
 
   const [loaded, error] = useFonts({
     "Host-Grotesk-Bold": require("@/assets/fonts/HostGrotesk-Bold.ttf"),

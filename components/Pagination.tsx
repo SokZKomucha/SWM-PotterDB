@@ -17,6 +17,7 @@ export default function Pagination(props: PaginationProps) {
     props.setPageNumber(pageNumber);
   }
 
+
   return (
     <View style={{
       display: "flex",
@@ -39,7 +40,7 @@ export default function Pagination(props: PaginationProps) {
         }}>
           <Text style={{
             fontSize: 20,
-            color: props.pageNumber > 1 ? "rgb(148, 148, 148)" : "rgb(213, 213, 213)"
+            color: props.pageNumber > 1 ? "rgb(0, 0, 0)" : "rgb(213, 213, 213)"
           }}>&lt;</Text>
         </View>
       </Pressable>
@@ -81,7 +82,7 @@ export default function Pagination(props: PaginationProps) {
         }}>
           <Text style={{
             fontSize: 20,
-            color: props.pageNumber < props.pageCount ? "rgb(148, 148, 148)" : "rgb(213, 213, 213)"
+            color: props.pageNumber < props.pageCount ? "rgb(0, 0, 0)" : "rgb(213, 213, 213)"
           }}>&gt;</Text>
         </View>
       </Pressable>
